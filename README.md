@@ -2,18 +2,16 @@
   <img src="resource/readme/logo.png" alt="DARU MuJoCo logo" width="840" />
 </p>
 
-[![Main](https://img.shields.io/badge/Main-active-24292f?logo=github)](https://github.com/YOUR_GITHUB_ID/YOUR_REPO)
-[![Build](https://img.shields.io/github/actions/workflow/status/YOUR_GITHUB_ID/YOUR_REPO/ci.yml?branch=main&label=build)](https://github.com/YOUR_GITHUB_ID/YOUR_REPO/actions)
+[![Main](https://img.shields.io/badge/Main-active-24292f?logo=github)](https://github.com/Chanwoochan/daru_mujoco)
+[![Build](https://img.shields.io/github/actions/workflow/status/Chanwoochan/daru_mujoco/ci.yml?branch=main&label=build)](https://github.com/Chanwoochan/daru_mujoco/actions)
 [![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Imports](https://img.shields.io/badge/imports-isort-1674b1.svg)](https://pycqa.github.io/isort/)
-[![Stars](https://img.shields.io/github/stars/YOUR_GITHUB_ID/YOUR_REPO?style=flat)](https://github.com/YOUR_GITHUB_ID/YOUR_REPO/stargazers)
-[![Issues](https://img.shields.io/github/issues/YOUR_GITHUB_ID/YOUR_REPO)](https://github.com/YOUR_GITHUB_ID/YOUR_REPO/issues)
+[![Stars](https://img.shields.io/github/stars/Chanwoochan/daru_mujoco?style=flat)](https://github.com/Chanwoochan/daru_mujoco/stargazers)
+[![Issues](https://img.shields.io/github/issues/Chanwoochan/daru_mujoco)](https://github.com/Chanwoochan/daru_mujoco/issues)
 
 <p align="center">
   <img src="resource/readme/sim_example.gif" alt="DARU MuJoCo simulation example" width="960" />
 </p>
-
-Replace `YOUR_GITHUB_ID/YOUR_REPO` with your actual GitHub repository path.
 
 DARU V4 MuJoCo simulator package for ROS 2.
 
