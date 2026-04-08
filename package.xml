@@ -18,6 +18,11 @@
   <depend>geometry_msgs</depend>
   <depend>visualization_msgs</depend>
   <depend>image_transport</depend>
+  <depend>curl</depend>
+  <depend>libcairo2-dev</depend>
+  <depend>libopencv-dev</depend>
+  <depend>libtiff-dev</depend>
+  <depend>pkg-config</depend>
 
   <exec_depend>compressed_image_transport</exec_depend>
 

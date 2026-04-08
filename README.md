@@ -93,15 +93,52 @@ Notes:
 - `OpenGL` is not vendored. It must come from the system graphics stack.
 - If Conda is active, it can override system `libcurl` or `libtiff` and break linking. Build in a clean ROS shell if possible.
 
-## Build
+## install
+
+Assumption:
+
+- ROS 2 is already installed.
+- Ubuntu shell is used.
+- Build from a clean shell. If Conda is active, run `conda deactivate` first.
+
+Install system dependencies:
+
+```bash
+sudo apt update
+sudo apt install -y python3-rosdep
+sudo rosdep init
+rosdep update
+```
 
 From the workspace root:
 
 ```bash
-cd ~/daru_ws
+cd ~/your_ws
+git clone https://github.com/Chanwoochan/daru_mujoco.git
 source /opt/ros/$ROS_DISTRO/setup.bash
+rosdep install --from-paths src --ignore-src -r -y
 colcon build --packages-select daru_mujoco
 source install/setup.bash
+```
+
+If `rosdep` is unavailable or a package mirror is misconfigured, install the required Ubuntu packages directly:
+
+```bash
+sudo apt update
+sudo apt install -y \
+  build-essential \
+  cmake \
+  pkg-config \
+  libcairo2-dev \
+  libopencv-dev \
+  libtiff-dev \
+  libcurl4-openssl-dev \
+  libgl1-mesa-dev \
+  libx11-dev \
+  libxrandr-dev \
+  libxinerama-dev \
+  libxcursor-dev \
+  libxi-dev
 ```
 
 ## Run
