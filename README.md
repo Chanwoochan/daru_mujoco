@@ -3,7 +3,6 @@
 </p>
 
 [![Main](https://img.shields.io/badge/Main-active-24292f?logo=github)](https://github.com/Chanwoochan/daru_mujoco)
-[![Build](https://img.shields.io/github/actions/workflow/status/Chanwoochan/daru_mujoco/ci.yml?branch=main&label=build)](https://github.com/Chanwoochan/daru_mujoco/actions)
 [![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Imports](https://img.shields.io/badge/imports-isort-1674b1.svg)](https://pycqa.github.io/isort/)
 [![Stars](https://img.shields.io/github/stars/Chanwoochan/daru_mujoco?style=flat)](https://github.com/Chanwoochan/daru_mujoco/stargazers)
