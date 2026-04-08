@@ -23,7 +23,6 @@
     <global azimuth="150" elevation="-18" offwidth="340" offheight="180"/>
   </visual>
   <include file="../furniture_sim/bin/bin_asset.xml"/>
-  <include file="../object_sim/cup/assets.xml"/>
   <asset>
     <model name="DARU_robot" file="DARU_NEW_260323_torque.xml"/>
     <texture name="scene_checker" type="2d" builtin="checker" rgb1="0.18 0.20 0.22" rgb2="0.12 0.14 0.16"
