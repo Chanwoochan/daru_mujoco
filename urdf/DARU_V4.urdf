@@ -1,0 +1,379 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="DARU_V4">
+  <link name="Base">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/Base.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/Base.STL" />
+      </geometry>
+    </collision>
+  <inertial><mass value="13.2196" /><origin xyz="-0.032402 1.4e-05 -0.244962" rpy="0 -0 0" /><inertia ixx="0.99693" ixy="1.02e-05" ixz="0.0957283" iyy="0.046755" iyz="1.31e-06" izz="0.188346" /></inertial></link>
+  <link name="UB_Link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/UB_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/UB_Link.STL" />
+      </geometry>
+    </collision>
+  <inertial><mass value="13.1568" /><origin xyz="-0.061806 0.003181 0.244965" rpy="0 -0 0" /><inertia ixx="0.229735" ixy="-0.00156693" ixz="-0.0108375" iyy="0.204459" iyz="0.0048128" izz="0.117539" /></inertial></link>
+  <joint name="Waist_Joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="Base" />
+    <child link="UB_Link" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="RSP_Link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/RSP_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/RSP_Link.STL" />
+      </geometry>
+    </collision>
+  <inertial><mass value="1.00668" /><origin xyz="-0.001103 0.006723 0.000128" rpy="0 -0 0" /><inertia ixx="0.00126362" ixy="6.61e-06" ixz="-5.93e-06" iyy="0.00099358" iyz="9.4e-07" izz="0.00130174" /></inertial></link>
+  <joint name="RSP_Joint" type="continuous">
+    <origin xyz="0 -0.225 0.3725" rpy="0 0 0" />
+    <parent link="UB_Link" />
+    <child link="RSP_Link" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="RSR_Link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/RSR_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/RSR_Link.STL" />
+      </geometry>
+    </collision>
+  <inertial><mass value="1.03829" /><origin xyz="-0.007048 -0.000146 -0.081962" rpy="0 -0 0" /><inertia ixx="0.00152007" ixy="-2.4e-07" ixz="0.00024743" iyy="0.00173946" iyz="4.57e-06" izz="0.00115734" /></inertial></link>
+  <joint name="RSR_Joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="RSP_Link" />
+    <child link="RSR_Link" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="RSY_Link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/RSY_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/RSY_Link.STL" />
+      </geometry>
+    </collision>
+  <inertial><mass value="1.17556" /><origin xyz="0.000172 -0.00352 -0.188759" rpy="0 -0 0" /><inertia ixx="0.0023299" ixy="9.62e-06" ixz="-4.22e-06" iyy="0.00225421" iyz="-6.444e-05" izz="0.00108526" /></inertial></link>
+  <joint name="RSY_Joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="RSR_Link" />
+    <child link="RSY_Link" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="REP_Link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/REP_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/REP_Link.STL" />
+      </geometry>
+    </collision>
+  <inertial><mass value="0.394359" /><origin xyz="-0.000774 -2.9e-05 -0.069319" rpy="0 -0 0" /><inertia ixx="0.00069881" ixy="1.67e-06" ixz="1.117e-05" iyy="0.00072424" iyz="-1.03e-06" izz="0.00018951" /></inertial></link>
+  <joint name="REP_Joint" type="continuous">
+    <origin xyz="0 0 -0.299999999999998" rpy="0 0 0" />
+    <parent link="RSY_Link" />
+    <child link="REP_Link" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="REY_Link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/REY_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/REY_Link.STL" />
+      </geometry>
+    </collision>
+  <inertial><mass value="0.306356" /><origin xyz="0.002676 -5.4e-05 -0.144684" rpy="0 -0 0" /><inertia ixx="0.00017497" ixy="-5e-07" ixz="-6.05e-06" iyy="0.0001923" iyz="1.35e-06" izz="0.00016718" /></inertial></link>
+  <joint name="REY_Joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="REP_Link" />
+    <child link="REY_Link" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="RWR_Link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/RWR_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.22353 0.22353 0.22353 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/RWR_Link.STL" />
+      </geometry>
+    </collision>
+  <inertial><mass value="0.329053" /><origin xyz="0.002976 -0.028456 -0.055343" rpy="0 -0 0" /><inertia ixx="0.00031447" ixy="-2.552e-05" ixz="-4.076e-05" iyy="0.00026371" iyz="-6.773e-05" izz="0.00023992" /></inertial></link>
+  <joint name="RWR_Joint" type="continuous">
+    <origin xyz="0 0 -0.148" rpy="0 0 0" />
+    <parent link="REY_Link" />
+    <child link="RWR_Link" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="RWP_Link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/RWP_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/RWP_Link.STL" />
+      </geometry>
+    </collision>
+  <inertial><mass value="0.0273462" /><origin xyz="0 -0.008194 -0.007999" rpy="0 -0 0" /><inertia ixx="6.65e-06" ixy="0" ixz="0" iyy="9.4e-06" iyz="2.1e-07" izz="3.07e-06" /></inertial></link>
+  <joint name="RWP_Joint" type="continuous">
+    <origin xyz="0 0 -0.0625" rpy="0 0 0" />
+    <parent link="RWR_Link" />
+    <child link="RWP_Link" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="RHand_Equivalent_Link">
+  <inertial><mass value="0.43203146" /><origin xyz="0.005500093805043143 -0.0031691606376864963 -0.09192641286605008" rpy="0 0 0" /><inertia ixx="0.00096262" ixy="-0.00014229" ixz="-0.0001035" iyy="0.0013255" iyz="-0.00011751" izz="0.00060028" /></inertial></link>
+  <joint name="RHand_Equivalent_Fixed" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="RWP_Link" />
+    <child link="RHand_Equivalent_Link" />
+  </joint>
+  <link name="LSP_Link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/LSP_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/LSP_Link.STL" />
+      </geometry>
+    </collision>
+  <inertial><mass value="1.00668" /><origin xyz="-0.001103 -0.006723 -0.000172" rpy="0 -0 0" /><inertia ixx="0.00126361" ixy="-6.61e-06" ixz="5.07e-06" iyy="0.00099357" iyz="-1.52e-06" izz="0.00130173" /></inertial></link>
+  <joint name="LSP_Joint" type="continuous">
+    <origin xyz="0 0.225 0.372499999999996" rpy="0 0 0" />
+    <parent link="UB_Link" />
+    <child link="LSP_Link" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="LSR_Link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/LSR_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75686 0.76863 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/LSR_Link.STL" />
+      </geometry>
+    </collision>
+  <inertial><mass value="1.03829" /><origin xyz="-0.007048 -0.000146 -0.081962" rpy="0 -0 0" /><inertia ixx="0.00152007" ixy="-2.4e-07" ixz="0.00024743" iyy="0.00173946" iyz="4.57e-06" izz="0.00115734" /></inertial></link>
+  <joint name="LSR_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="LSP_Link" />
+    <child link="LSR_Link" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="LSY_Link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/LSY_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75686 0.76863 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/LSY_Link.STL" />
+      </geometry>
+    </collision>
+  <inertial><mass value="1.17556" /><origin xyz="-8.6e-05 0.00352 -0.188759" rpy="0 -0 0" /><inertia ixx="0.0023299" ixy="9.62e-06" ixz="-4.22e-06" iyy="0.00225421" iyz="-6.444e-05" izz="0.00108526" /></inertial></link>
+  <joint name="LSY_Joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="LSR_Link" />
+    <child link="LSY_Link" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="LEP_Link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/LEP_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/LEP_Link.STL" />
+      </geometry>
+    </collision>
+  <inertial><mass value="0.394359" /><origin xyz="-0.000764 3.4e-05 -0.069319" rpy="0 -0 0" /><inertia ixx="0.00069836" ixy="-1.42e-06" ixz="1.105e-05" iyy="0.0007247" iyz="9.6e-07" izz="0.00018952" /></inertial></link>
+  <joint name="LEP_Joint" type="continuous">
+    <origin xyz="0 0 -0.299999999999995" rpy="0 0 0" />
+    <parent link="LSY_Link" />
+    <child link="LEP_Link" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="LEY_Link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/LEY_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/LEY_Link.STL" />
+      </geometry>
+    </collision>
+  <inertial><mass value="0.306356" /><origin xyz="0.002676 -0.000122 -0.144582" rpy="0 -0 0" /><inertia ixx="0.00017475" ixy="-1.2e-06" ixz="-5.07e-06" iyy="0.00019497" iyz="1.3e-07" izz="0.0001643" /></inertial></link>
+  <joint name="LEY_Joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="LEP_Link" />
+    <child link="LEY_Link" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="LWR_Link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/LWR_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/LWR_Link.STL" />
+      </geometry>
+    </collision>
+  <inertial><mass value="0.329053" /><origin xyz="0.002925 0.029313 -0.05543" rpy="0 -0 0" /><inertia ixx="0.00031536" ixy="2.691e-05" ixz="-4.237e-05" iyy="0.00026422" iyz="7.054e-05" izz="0.00024537" /></inertial></link>
+  <joint name="LWR_Joint" type="continuous">
+    <origin xyz="0 0 -0.147999999999998" rpy="0 0 0" />
+    <parent link="LEY_Link" />
+    <child link="LWR_Link" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="LWP_Link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/LWP_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="model://DARU_V4/meshes/LWP_Link.STL" />
+      </geometry>
+    </collision>
+  <inertial><mass value="0.0273462" /><origin xyz="0 0.009194 -0.007999" rpy="0 -0 0" /><inertia ixx="6.65e-06" ixy="0" ixz="0" iyy="9.4e-06" iyz="-2.1e-07" izz="3.07e-06" /></inertial></link>
+  <joint name="LWP_Joint" type="continuous">
+    <origin xyz="0 0 -0.0624999999999999" rpy="0 0 0" />
+    <parent link="LWR_Link" />
+    <child link="LWP_Link" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="LHand_Equivalent_Link">
+  <inertial><mass value="0.43203146" /><origin xyz="0.005500093805043143 0.0031691606376864963 -0.09192641286605008" rpy="0 0 0" /><inertia ixx="0.00096262" ixy="0.00014229" ixz="-0.0001035" iyy="0.0013255" iyz="0.00011751" izz="0.00060028" /></inertial></link>
+  <joint name="LHand_Equivalent_Fixed" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="LWP_Link" />
+    <child link="LHand_Equivalent_Link" />
+  </joint>
+</robot>

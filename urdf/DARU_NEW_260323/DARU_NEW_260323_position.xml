@@ -1,0 +1,24 @@
+<!-- DARU_NEW_260323 Position Control MJCF -->
+<mujoco model="DARU_NEW_260323_position">
+  <include file="DARU_NEW_260323_hands_pos.xml"/>
+
+  <actuator>
+    <position name="Waist_Joint_pos" joint="Waist_Joint" kp="300" kv="10" ctrlrange="-3.14 3.14" forcerange="-150 150" ctrllimited="true" forcelimited="true"/>
+    <position name="RSP_Joint_pos" joint="RSP_Joint" kp="80" kv="2" ctrlrange="-4.46 0.8378" forcerange="-30 30" ctrllimited="true" forcelimited="true"/>
+    <position name="RSR_Joint_pos" joint="RSR_Joint" kp="80" kv="2" ctrlrange="-3.491 0.349" forcerange="-30 30" ctrllimited="true" forcelimited="true"/>
+    <position name="RSY_Joint_pos" joint="RSY_Joint" kp="50" kv="0.8" ctrlrange="-2.88 2.88" forcerange="-30 30" ctrllimited="true" forcelimited="true"/>
+    <position name="REP_Joint_pos" joint="REP_Joint" kp="80" kv="2" ctrlrange="-2.356 0" forcerange="-30 30" ctrllimited="true" forcelimited="true"/>
+    <position name="REY_Joint_pos" joint="REY_Joint" kp="30" kv="0.3" ctrlrange="-1.571 1.571" forcerange="-5 5" ctrllimited="true" forcelimited="true"/>
+    <position name="RWR_Joint_pos" joint="RWR_Joint" kp="30" kv="0.3" ctrlrange="-1.571 1.571" forcerange="-5 5" ctrllimited="true" forcelimited="true"/>
+    <position name="RWP_Joint_pos" joint="RWP_Joint" kp="30" kv="0.3" ctrlrange="-1.571 1.571" forcerange="-5 5" ctrllimited="true" forcelimited="true"/>
+    <position name="LSP_Joint_pos" joint="LSP_Joint" kp="80" kv="2" ctrlrange="-4.46 0.8378" forcerange="-30 30" ctrllimited="true" forcelimited="true"/>
+    <position name="LSR_Joint_pos" joint="LSR_Joint" kp="80" kv="2" ctrlrange="-0.349 3.491" forcerange="-30 30" ctrllimited="true" forcelimited="true"/>
+    <position name="LSY_Joint_pos" joint="LSY_Joint" kp="50" kv="0.8" ctrlrange="-2.88 2.88" forcerange="-30 30" ctrllimited="true" forcelimited="true"/>
+    <position name="LEP_Joint_pos" joint="LEP_Joint" kp="80" kv="2" ctrlrange="-2.356 0" forcerange="-30 30" ctrllimited="true" forcelimited="true"/>
+    <position name="LEY_Joint_pos" joint="LEY_Joint" kp="30" kv="0.3" ctrlrange="-1.571 1.571" forcerange="-5 5" ctrllimited="true" forcelimited="true"/>
+    <position name="LWR_Joint_pos" joint="LWR_Joint" kp="30" kv="0.3" ctrlrange="-1.571 1.571" forcerange="-5 5" ctrllimited="true" forcelimited="true"/>
+    <position name="LWP_Joint_pos" joint="LWP_Joint" kp="30" kv="0.3" ctrlrange="-1.571 1.571" forcerange="-5 5" ctrllimited="true" forcelimited="true"/>
+    <position name="HY_Joint_pos" joint="HY_Joint" kp="40" kv="1" ctrlrange="-1.571 1.571" forcerange="-7 7" ctrllimited="true" forcelimited="true"/>
+    <position name="HP_Joint_pos" joint="HP_Joint" kp="40" kv="1" ctrlrange="-0.785 0.349" forcerange="-7 7" ctrllimited="true" forcelimited="true"/>
+  </actuator>
+</mujoco>

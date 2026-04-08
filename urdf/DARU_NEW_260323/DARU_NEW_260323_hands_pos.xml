@@ -1,0 +1,161 @@
+<!-- DARU_NEW_260323 Model MJCF -->
+<mujoco model="DARU_NEW_260323_hands">
+  <compiler angle="radian"/>
+
+  <asset>
+    <mesh name="Base" content_type="model/stl" file="meshes/Base.STL"/>
+    <mesh name="UB_Link" content_type="model/stl" file="meshes/UB_Link.STL"/>
+    <mesh name="RSP_Link" content_type="model/stl" file="meshes/RSP_Link.STL"/>
+    <mesh name="RSR_Link" content_type="model/stl" file="meshes/RSR_Link.STL"/>
+    <mesh name="RSY_Link" content_type="model/stl" file="meshes/RSY_Link.STL"/>
+    <mesh name="REP_Link" content_type="model/stl" file="meshes/REP_Link.STL"/>
+    <mesh name="REY_Link" content_type="model/stl" file="meshes/REY_Link.STL"/>
+    <mesh name="RWR_Link" content_type="model/stl" file="meshes/RWR_Link.STL"/>
+    <mesh name="RWP_Link" content_type="model/stl" file="meshes/RWP_Link.STL"/>
+    <mesh name="LSP_Link" content_type="model/stl" file="meshes/LSP_Link.STL"/>
+    <mesh name="LSR_Link" content_type="model/stl" file="meshes/LSR_Link.STL"/>
+    <mesh name="LSY_Link" content_type="model/stl" file="meshes/LSY_Link.STL"/>
+    <mesh name="LEP_Link" content_type="model/stl" file="meshes/LEP_Link.STL"/>
+    <mesh name="LEY_Link" content_type="model/stl" file="meshes/LEY_Link.STL"/>
+    <mesh name="LWR_Link" content_type="model/stl" file="meshes/LWR_Link.STL"/>
+    <mesh name="LWP_Link" content_type="model/stl" file="meshes/LWP_Link.STL"/>
+    <mesh name="HY_Link" content_type="model/stl" file="meshes/HY_Link.STL"/>
+    <mesh name="HP_Link" content_type="model/stl" file="meshes/HP_Link.STL"/>
+
+    <model name="ROUGH_R_hand" file="../ROUGH_R/ROUGH_R_pos.xml"/>
+    <model name="ROUGH_L_hand" file="../ROUGH_L/ROUGH_L_pos.xml"/>
+
+    <material name="robot_mat" rgba="0.22 0.22 0.22 1" specular="0.10" shininess="0.15"/>
+  </asset>
+
+  <worldbody>
+    <body name="Base">
+      <geom type="mesh" material="robot_mat" mesh="Base"/>
+      <body name="UB_Link">
+      <inertial pos="-0.0507646 2.076e-05 0.269453" quat="0.999045 0.000129377 0.0436833 -0.000203278" mass="14.7807" diaginertia="0.274438 0.254941 0.146742"/>
+      <joint name="Waist_Joint" pos="0 0 0" axis="0 0 1" range="-3.14 3.14" actuatorfrcrange="-150 150" frictionloss="0.5"/>
+      <geom type="mesh" material="robot_mat" mesh="UB_Link"/>
+      <body name="RSP_Link" pos="0 -0.225 0.3725">
+        <inertial pos="0.00033313 0.00631764 0.00011791" quat="0.469401 0.470201 -0.526788 0.530159" mass="1.09643" diaginertia="0.00148436 0.00143505 0.00116252"/>
+        <joint name="RSP_Joint" pos="0 0 0" axis="0 1 0" range="-4.46 0.8378" actuatorfrcrange="-30 30" frictionloss="0.3"/>
+        <geom type="mesh" material="robot_mat" mesh="RSP_Link"/>
+        <body name="RSR_Link">
+          <inertial pos="-0.00773789 -0.00013658 -0.0808405" quat="0.692031 -0.170654 -0.177473 0.678582" mass="1.1089" diaginertia="0.00200261 0.00190758 0.001159"/>
+          <joint name="RSR_Joint" pos="0 0 0" axis="1 0 0" range="-3.491 0.349" actuatorfrcrange="-30 30" frictionloss="0.3"/>
+          <geom type="mesh" material="robot_mat" mesh="RSR_Link"/>
+          <body name="RSY_Link">
+            <inertial pos="-0.00104042 -0.00328212 -0.191833" quat="0.998994 0.0254289 0.0349831 0.0118134" mass="1.31388" diaginertia="0.00303097 0.00294897 0.00136975"/>
+            <joint name="RSY_Joint" pos="0 0 0" axis="0 0 1" range="-2.88 2.88" actuatorfrcrange="-30 30" frictionloss="0.3"/>
+            <geom type="mesh" material="robot_mat" mesh="RSY_Link"/>
+            <body name="REP_Link" pos="0 0 -0.3">
+              <inertial pos="-0.0013698 -3.287e-05 -0.0692101" quat="0.726958 -0.0147117 -0.0142461 0.686377" mass="0.442059" diaginertia="0.00080198 0.000775082 0.000248848"/>
+              <joint name="REP_Joint" pos="0 0 0" axis="0 1 0" range="-2.356 0" actuatorfrcrange="-30 30" frictionloss="0.3"/>
+              <geom type="mesh" material="robot_mat" mesh="REP_Link"/>
+              <body name="REY_Link">
+                <inertial pos="0.00267605 -5.449e-05 -0.144684" quat="0.661611 0.191342 0.155231 0.708211" mass="0.306356" diaginertia="0.000192415 0.000178187 0.000163848"/>
+                <joint name="REY_Joint" pos="0 0 0" axis="0 0 1" range="-1.571 1.571" actuatorfrcrange="-5 5" frictionloss="0.2"/>
+                <geom type="mesh" material="robot_mat" mesh="REY_Link"/>
+                <body name="RWR_Link" pos="0 0 -0.148">
+                  <inertial pos="0.00297563 -0.0284565 -0.0553425" quat="0.917533 -0.288581 0.219655 0.163111" mass="0.329053" diaginertia="0.000333126 0.000317397 0.000167577"/>
+                  <joint name="RWR_Joint" pos="0 0 0" axis="1 0 0" range="-1.571 1.571" actuatorfrcrange="-5 5" frictionloss="0.2"/>
+                  <geom type="mesh" material="robot_mat" mesh="RWR_Link"/>
+                  <body name="RWP_Link" pos="0 0 -0.0625">
+                    <inertial pos="0.0431291 -0.00434224 -0.0143786" quat="-0.166252 0.740498 -0.250776 0.600945" mass="0.108733" diaginertia="0.000178378 0.000173519 2.43732e-05"/>
+                    <joint name="RWP_Joint" pos="0 0 0" axis="0 1 0" range="-1.571 1.571" actuatorfrcrange="-5 5" frictionloss="0.1"/>
+                    <geom type="mesh" material="robot_mat" mesh="RWP_Link"/>
+                    <body name="R_Hand_Mount" pos="0 -0.0045 -0.0255" euler="0 3.142 1.571">
+                      <attach model="ROUGH_R_hand" prefix="rh_"/>
+                    </body>
+                    <camera name="R_wrist_cam"
+                        pos="0.082 -0.006 -0.038"
+                        euler="0.2618 0.3918 0"
+                        fovy="58"/>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="LSP_Link" pos="0 0.225 0.3725">
+        <inertial pos="0.00023229 -0.00621771 -0.00015876" quat="0.524908 0.534257 -0.466047 0.471" mass="1.09329" diaginertia="0.00146957 0.00142974 0.00115004"/>
+        <joint name="LSP_Joint" pos="0 0 0" axis="0 1 0" range="-4.46 0.8378" actuatorfrcrange="-30 30" frictionloss="0.3"/>
+        <geom type="mesh" material="robot_mat" mesh="LSP_Link"/>
+        <body name="LSR_Link">
+          <inertial pos="-0.00773794 -0.00013656 -0.0808405" quat="0.692032 -0.170655 -0.177474 0.678581" mass="1.1089" diaginertia="0.00200261 0.0019076 0.00115899"/>
+          <joint name="LSR_Joint" pos="0 0 0" axis="1 0 0" range="-0.349 3.491" actuatorfrcrange="-30 30" frictionloss="0.3"/>
+          <geom type="mesh" material="robot_mat" mesh="LSR_Link"/>
+          <body name="LSY_Link">
+            <inertial pos="-0.00129204 0.00333021 -0.19157" quat="0.99714 -0.0219468 0.0377979 0.061652" mass="1.30782" diaginertia="0.00300549 0.0029214 0.00136631"/>
+            <joint name="LSY_Joint" pos="0 0 0" axis="0 0 1" range="-2.88 2.88" actuatorfrcrange="-30 30" frictionloss="0.3"/>
+            <geom type="mesh" material="robot_mat" mesh="LSY_Link"/>
+            <body name="LEP_Link" pos="0 0 -0.3">
+              <inertial pos="-0.00136083 3.812e-05 -0.06921" quat="0.690403 -0.0141392 -0.0146771 0.723138" mass="0.442059" diaginertia="0.000802411 0.000774652 0.000248867"/>
+              <joint name="LEP_Joint" pos="0 0 0" axis="0 1 0" range="-2.356 0" actuatorfrcrange="-30 30" frictionloss="0.3"/>
+              <geom type="mesh" material="robot_mat" mesh="LEP_Link"/>
+              <body name="LEY_Link">
+                <inertial pos="0.00267605 -0.00012191 -0.144582" quat="0.670867 0.136457 0.134863 0.71633" mass="0.306356" diaginertia="0.000195047 0.000176732 0.000162241"/>
+                <joint name="LEY_Joint" pos="0 0 0" axis="0 0 1" range="-1.571 1.571" actuatorfrcrange="-5 5" frictionloss="0.2"/>
+                <geom type="mesh" material="robot_mat" mesh="LEY_Link"/>
+                <body name="LWR_Link" pos="0 0 -0.148">
+                  <inertial pos="0.0029249 0.0293125 -0.0554304" quat="0.903175 0.281632 0.242805 -0.214485" mass="0.329053" diaginertia="0.000336821 0.000321128 0.000167"/>
+                  <joint name="LWR_Joint" pos="0 0 0" axis="1 0 0" range="-1.571 1.571" actuatorfrcrange="-5 5" frictionloss="0.2"/>
+                  <geom type="mesh" material="robot_mat" mesh="LWR_Link"/>
+                  <body name="LWP_Link" pos="0 0 -0.0625">
+                    <inertial pos="0.0431343 0.00528524 -0.0143643" quat="0.16844 0.739926 0.252005 0.600526" mass="0.108733" diaginertia="0.000178364 0.000173494 2.43421e-05"/>
+                    <joint name="LWP_Joint" pos="0 0 0" axis="0 1 0" range="-1.571 1.571" actuatorfrcrange="-5 5" frictionloss="0.1"/>
+                    <geom type="mesh" material="robot_mat" mesh="LWP_Link"/>
+                    <body name="L_Hand_Mount" pos="0 0.0045 -0.0255" euler="0 3.142 -1.571">
+                      <attach model="ROUGH_L_hand" prefix="lh_"/>
+                    </body>
+                    <camera name="L_wrist_cam"
+                        pos="0.082 0.006 -0.038"
+                        euler="-0.2618 0.3918 0"
+                        fovy="58"/>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="HY_Link" pos="0 0 0.5655" quat="0.99994 3.14719e-05 0.0105453 -0.00298428">
+        <inertial pos="-0.00136668 -0.00281064 -0.0163791" quat="0.709902 0.686287 0.119444 -0.103836" mass="0.0824974" diaginertia="6.43821e-05 5.72521e-05 4.95557e-05"/>
+        <joint name="HY_Joint" pos="0 0 0" axis="0 0 1" range="-1.571 1.571" actuatorfrcrange="-7 7"/>
+        <geom type="mesh" material="robot_mat" mesh="HY_Link"/>
+        <body name="HP_Link">
+          <inertial pos="0.0113946 -0.00069587 0.032575" quat="0.935722 0.00167622 -0.35249 -0.0131194" mass="0.94946" diaginertia="0.00662813 0.00602591 0.00512292"/>
+          <joint name="HP_Joint" pos="0 0 0" axis="0 1 0" range="-0.785 0.349" actuatorfrcrange="-7 7"/>
+          <geom type="mesh" material="robot_mat" mesh="HP_Link"/>
+        </body>
+      </body>
+    </body>
+  </body>
+  </worldbody>
+
+  <contact>
+    <exclude body1="Base" body2="UB_Link"/>
+    <exclude body1="UB_Link" body2="RSP_Link"/>
+    <exclude body1="RSP_Link" body2="RSR_Link"/>
+    <exclude body1="RSR_Link" body2="RSY_Link"/>
+    <exclude body1="RSY_Link" body2="REP_Link"/>
+    <exclude body1="REP_Link" body2="REY_Link"/>
+    <exclude body1="REY_Link" body2="RWR_Link"/>
+    <exclude body1="RWR_Link" body2="RWP_Link"/>
+    <exclude body1="RWP_Link" body2="rh_fC_Base_Link"/>
+
+    <exclude body1="UB_Link" body2="LSP_Link"/>
+    <exclude body1="LSP_Link" body2="LSR_Link"/>
+    <exclude body1="LSR_Link" body2="LSY_Link"/>
+    <exclude body1="LSY_Link" body2="LEP_Link"/>
+    <exclude body1="LEP_Link" body2="LEY_Link"/>
+    <exclude body1="LEY_Link" body2="LWR_Link"/>
+    <exclude body1="LWR_Link" body2="LWP_Link"/>
+    <exclude body1="LWP_Link" body2="lh_fC_Base_Link"/>
+
+    <exclude body1="UB_Link" body2="HY_Link"/>
+    <exclude body1="UB_Link" body2="HP_Link"/>
+    <exclude body1="HY_Link" body2="HP_Link"/>
+  </contact>
+
+</mujoco>

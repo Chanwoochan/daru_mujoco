@@ -1,0 +1,24 @@
+<!-- DARU_NEW_260323 Torque Control MJCF -->
+<mujoco model="DARU_NEW_260323_torque">
+  <include file="DARU_NEW_260323_hands.xml"/>
+
+  <actuator>
+    <motor name="Waist_Joint_motor" joint="Waist_Joint" ctrlrange="-150 150" gear="1" ctrllimited="true"/>
+    <motor name="RSP_Joint_motor" joint="RSP_Joint" ctrlrange="-60 60" gear="1" ctrllimited="true"/>
+    <motor name="RSR_Joint_motor" joint="RSR_Joint" ctrlrange="-60 60" gear="1" ctrllimited="true"/>
+    <motor name="RSY_Joint_motor" joint="RSY_Joint" ctrlrange="-60 60" gear="1" ctrllimited="true"/>
+    <motor name="REP_Joint_motor" joint="REP_Joint" ctrlrange="-60 60" gear="1" ctrllimited="true"/>
+    <motor name="REY_Joint_motor" joint="REY_Joint" ctrlrange="-10 10" gear="1" ctrllimited="true"/>
+    <motor name="RWR_Joint_motor" joint="RWR_Joint" ctrlrange="-10 10" gear="1" ctrllimited="true"/>
+    <motor name="RWP_Joint_motor" joint="RWP_Joint" ctrlrange="-10 10" gear="1" ctrllimited="true"/>
+    <motor name="LSP_Joint_motor" joint="LSP_Joint" ctrlrange="-60 60" gear="1" ctrllimited="true"/>
+    <motor name="LSR_Joint_motor" joint="LSR_Joint" ctrlrange="-60 60" gear="1" ctrllimited="true"/>
+    <motor name="LSY_Joint_motor" joint="LSY_Joint" ctrlrange="-60 60" gear="1" ctrllimited="true"/>
+    <motor name="LEP_Joint_motor" joint="LEP_Joint" ctrlrange="-60 60" gear="1" ctrllimited="true"/>
+    <motor name="LEY_Joint_motor" joint="LEY_Joint" ctrlrange="-10 10" gear="1" ctrllimited="true"/>
+    <motor name="LWR_Joint_motor" joint="LWR_Joint" ctrlrange="-10 10" gear="1" ctrllimited="true"/>
+    <motor name="LWP_Joint_motor" joint="LWP_Joint" ctrlrange="-10 10" gear="1" ctrllimited="true"/>
+    <motor name="HY_Joint_motor" joint="HY_Joint" ctrlrange="-7 7" gear="1" ctrllimited="true"/>
+    <motor name="HP_Joint_motor" joint="HP_Joint" ctrlrange="-7 7" gear="1" ctrllimited="true"/>
+  </actuator>
+</mujoco>

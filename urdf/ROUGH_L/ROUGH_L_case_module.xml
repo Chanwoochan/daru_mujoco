@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="ROUGH_L_case_module">
+  <asset>
+    <material name="robot_mat" rgba="0.32 0.32 0.32 1" specular="0.10" shininess="0.15"/>
+    <mesh name="case_module__mesh_1" file="ROUGH_L_case/meshes/Base_Link.STL" />
+  </asset>
+  <worldbody>
+    <body name="fC_Base_Link" pos="0 0 0" quat="1 0 0 0">
+      <inertial mass="0.10857" pos="-0.002751 0.002187 0.0541" fullinertia="0.00016131 9.291700000000001e-05 7.4793e-05 2.503e-07 3.6297e-06 2.5438e-06" />
+      <geom type="mesh" mesh="case_module__mesh_1" pos="0 0 0" quat="1 0 0 0" contype="0" conaffinity="2" group="1" rgba="0.32 0.32 0.32 1" material="robot_mat" />
+    </body>
+  </worldbody>
+</mujoco>

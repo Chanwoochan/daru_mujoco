@@ -1,0 +1,87 @@
+<!-- DARU_NEW_260323 scene with front desk and overhead light -->
+<mujoco model="DARU_NEW_260323_scene">
+<option timestep="0.002" solver="Newton" iterations="20"
+  noslip_iterations="50"/>
+  <compiler angle="radian"/>
+
+  <default>
+    <default class="grab">
+      <joint limited="false" margin="0.01" armature="0.001" damping="0" frictionloss="0.001"/>
+      <geom type="mesh" rgba=".93 .99 .97 1.0"/>
+      <site size="0.005 0 0" rgba="0.4 0.9 0.4 1"/>
+      <default class="object_col">
+        <geom type="mesh" density="1250" contype="1" conaffinity="1"
+              friction="1 0.5 0.01" margin="0.0005" condim="4"
+              rgba=".3 .4 .5 1" group="3"/>
+      </default>
+    </default>
+  </default>
+
+  <visual>
+    <headlight ambient="0.18 0.18 0.18" diffuse="0.55 0.55 0.55" specular="0.18 0.18 0.18"/>
+    <rgba haze="0.08 0.10 0.12 1"/>
+    <global azimuth="150" elevation="-18" offwidth="340" offheight="180"/>
+  </visual>
+  <include file="../furniture_sim/bin/bin_asset.xml"/>
+  <include file="../object_sim/cup/assets.xml"/>
+  <asset>
+    <model name="DARU_robot" file="DARU_NEW_260323_torque.xml"/>
+    <texture name="scene_checker" type="2d" builtin="checker" rgb1="0.18 0.20 0.22" rgb2="0.12 0.14 0.16"
+             width="512" height="512"/>
+    <texture name="desk_wood_tex" type="cube" file="../furniture_sim/common/textures/wood1.png"
+             width="2" height="2"/>
+    <material name="floor_mat" texture="scene_checker" texrepeat="6 6" texuniform="true"
+              reflectance="0.08" rgba="1 1 1 1"/>
+    <material name="desk_top_mat" texture="desk_wood_tex" texrepeat="2.5 2.5" texuniform="false"
+              rgba="0.98 0.92 0.84 1" reflectance="0.16" specular="0.10" shininess="0.12"/>
+    <material name="desk_leg_mat" texture="desk_wood_tex" texrepeat="4.0 4.0" texuniform="false"
+              rgba="0.84 0.74 0.60 1" reflectance="0.10" specular="0.08" shininess="0.10"/>
+  </asset>
+
+  <worldbody>
+    <light name="overhead_key" pos="0.55 0 2.45" dir="0 0 -1" directional="true"
+           diffuse="0.95 0.95 0.92" specular="0.20 0.20 0.20" castshadow="true"/>
+
+    <geom name="floor" type="plane" pos="0 0 0" size="4 4 0.1" material="floor_mat" contype="2" conaffinity="2"/>
+
+    <body name="robot_anchor" pos="0 0 1.0">
+      <attach model="DARU_robot" prefix=""/>
+    </body>
+
+    <body name="desk" pos="0.44 0 0">
+      <geom name="desk_top" type="box" pos="0 0 0.9" size="0.3 0.40 0.03"
+            material="desk_top_mat" condim="3" contype="2" conaffinity="2"/>
+      <geom name="desk_leg_fl" type="box" pos="0.23 0.30 0.45" size="0.035 0.035 0.45"
+            material="desk_leg_mat" condim="3" contype="2" conaffinity="2"/>
+      <geom name="desk_leg_fr" type="box" pos="0.23 -0.30 0.45" size="0.035 0.035 0.45"
+            material="desk_leg_mat" condim="3" contype="2" conaffinity="2"/>
+      <geom name="desk_leg_rl" type="box" pos="-0.23 0.30 0.45" size="0.035 0.035 0.45"
+            material="desk_leg_mat" condim="3" contype="2" conaffinity="2"/>
+      <geom name="desk_leg_rr" type="box" pos="-0.23 -0.30 0.45" size="0.035 0.035 0.45"
+            material="desk_leg_mat" condim="3" contype="2" conaffinity="2"/>
+    </body>
+
+    <body name="laundry_bin_left" pos="0.27 0.550 0.6">
+      <geom class="viz_stl_Metal_bin" type="mesh" mesh="bin" euler="-1.57 0 3.14" group="1" />
+      <geom type="box" pos="-0.12 0 0.2" size="0.01 0.147 0.2" euler="0 -0.0872665 0" group="3" condim="3" contype="2" conaffinity="2"/>
+      <geom type="box" pos="0.12 0 0.2" size="0.01 0.147 0.2" euler="0 0.0872665 0" group="3" condim="3" contype="2" conaffinity="2"/>
+      <geom type="box" pos="0 -0.12 0.2" size="0.01 0.147 0.2" euler="0.0872665 0 1.57" group="3" condim="3" contype="2" conaffinity="2"/>
+      <geom type="box" pos="0 0.12 0.2" size="0.01 0.147 0.2" euler="-0.0872665 0 1.57" group="3" condim="3" contype="2" conaffinity="2"/>
+      <geom type="box" pos="0 0 0.05" size="0.1 0.1 0.005" group="3" condim="3" contype="2" conaffinity="2"/>
+    </body>
+
+    <body name="laundry_bin_right" pos="0.27 -0.550 0.6">
+      <geom class="viz_stl_Metal_bin" type="mesh" mesh="bin" euler="-1.57 0 3.14" group="1"/>
+      <geom type="box" pos="-0.12 0 0.2" size="0.01 0.147 0.2" euler="0 -0.0872665 0" group="3" condim="3" contype="2" conaffinity="2"/>
+      <geom type="box" pos="0.12 0 0.2" size="0.01 0.147 0.2" euler="0 0.0872665 0" group="3" condim="3" contype="2" conaffinity="2"/>
+      <geom type="box" pos="0 -0.12 0.2" size="0.01 0.147 0.2" euler="0.0872665 0 1.57" group="3" condim="3" contype="2" conaffinity="2"/>
+      <geom type="box" pos="0 0.12 0.2" size="0.01 0.147 0.2" euler="-0.0872665 0 1.57" group="3" condim="3" contype="2" conaffinity="2"/>
+      <geom type="box" pos="0 0 0.05" size="0.1 0.1 0.005" group="3" condim="3" contype="2" conaffinity="2"/>
+    </body>
+
+    <body name="cloth" pos="0.26 0 1.5">
+      <include file="../cloth_body.xml"/>
+    </body>
+
+  </worldbody>
+</mujoco>

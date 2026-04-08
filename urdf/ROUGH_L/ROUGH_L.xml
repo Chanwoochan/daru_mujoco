@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="ROUGH_L">
+  <compiler angle="radian" />
+  <default>
+    <geom contype="0" conaffinity="2" />
+  </default>
+  <asset>
+    <model name="ROUGH_L_finger" file="ROUGH_L_finger_module.xml" />
+    <model name="ROUGH_L_thumb" file="ROUGH_L_finger_thumb_module.xml" />
+    <model name="ROUGH_L_cmc" file="ROUGH_L_finger_t_2_module.xml" />
+  </asset>
+  <include file="ROUGH_L_case_module.xml" />
+  <worldbody>
+    <body name="finger_mount_frame" pos="-0.014 -0.0075 0.0295">
+      <body name="f3_mount" pos="0 0 0" euler="0 0 0">
+        <attach model="ROUGH_L_finger" body="Base_Link" prefix="f3_" />
+      </body>
+      <body name="f4_mount" pos="0 -0.019419 -0.000378" euler="0.05236 0 0">
+        <attach model="ROUGH_L_finger" body="Base_Link" prefix="f4_" />
+      </body>
+      <body name="f2_mount" pos="0 0.019419 -0.003378" euler="-0.05236 0 0">
+        <attach model="ROUGH_L_finger" body="Base_Link" prefix="f2_" />
+      </body>
+      <body name="f1_mount" pos="0 0.03853 -0.009764" euler="-0.10472 0 0">
+        <attach model="ROUGH_L_finger" body="Base_Link" prefix="f1_" />
+      </body>
+      <body name="cmc_mount" pos="0.035 -0.015 -0.0039" euler="0 0 0">
+        <attach model="ROUGH_L_cmc" body="Base_Link" prefix="c_" />
+      </body>
+    </body>
+  </worldbody>
+
+  <contact>
+    <exclude body1="fC_Base_Link" body2="f1_Base_Link" />
+    <exclude body1="fC_Base_Link" body2="f1_Link_1" />
+    <exclude body1="fC_Base_Link" body2="f1_Link_2" />
+    <exclude body1="fC_Base_Link" body2="f1_Link_3" />
+    <exclude body1="fC_Base_Link" body2="f1_Link_4" />
+    <exclude body1="fC_Base_Link" body2="f1_Link_5" />
+    <exclude body1="fC_Base_Link" body2="f1_Motor_Link" />
+    <exclude body1="fC_Base_Link" body2="f1_Motor_Linear_Link" />
+    <exclude body1="fC_Base_Link" body2="f2_Base_Link" />
+    <exclude body1="fC_Base_Link" body2="f2_Link_1" />
+    <exclude body1="fC_Base_Link" body2="f2_Link_2" />
+    <exclude body1="fC_Base_Link" body2="f2_Link_3" />
+    <exclude body1="fC_Base_Link" body2="f2_Link_4" />
+    <exclude body1="fC_Base_Link" body2="f2_Link_5" />
+    <exclude body1="fC_Base_Link" body2="f2_Motor_Link" />
+    <exclude body1="fC_Base_Link" body2="f2_Motor_Linear_Link" />
+    <exclude body1="fC_Base_Link" body2="f3_Base_Link" />
+    <exclude body1="fC_Base_Link" body2="f3_Link_1" />
+    <exclude body1="fC_Base_Link" body2="f3_Link_2" />
+    <exclude body1="fC_Base_Link" body2="f3_Link_3" />
+    <exclude body1="fC_Base_Link" body2="f3_Link_4" />
+    <exclude body1="fC_Base_Link" body2="f3_Link_5" />
+    <exclude body1="fC_Base_Link" body2="f3_Motor_Link" />
+    <exclude body1="fC_Base_Link" body2="f3_Motor_Linear_Link" />
+    <exclude body1="fC_Base_Link" body2="f4_Base_Link" />
+    <exclude body1="fC_Base_Link" body2="f4_Link_1" />
+    <exclude body1="fC_Base_Link" body2="f4_Link_2" />
+    <exclude body1="fC_Base_Link" body2="f4_Link_3" />
+    <exclude body1="fC_Base_Link" body2="f4_Link_4" />
+    <exclude body1="fC_Base_Link" body2="f4_Link_5" />
+    <exclude body1="fC_Base_Link" body2="f4_Motor_Link" />
+    <exclude body1="fC_Base_Link" body2="f4_Motor_Linear_Link" />
+    <exclude body1="fC_Base_Link" body2="c_Base_Link" />
+    <exclude body1="fC_Base_Link" body2="c_Link_1" />
+    <exclude body1="fC_Base_Link" body2="c_Motor_Link" />
+    <exclude body1="fC_Base_Link" body2="c_Motor_Linear_Link" />
+    <exclude body1="fC_Base_Link" body2="c_t_Base_Link" />
+    <exclude body1="fC_Base_Link" body2="c_t_Link_1" />
+    <exclude body1="fC_Base_Link" body2="c_t_Link_2" />
+    <exclude body1="fC_Base_Link" body2="c_t_Link_3" />
+    <exclude body1="fC_Base_Link" body2="c_t_Motor_Link" />
+    <exclude body1="fC_Base_Link" body2="c_t_Motor_Linear_Link" />
+  </contact>
+
+  <actuator>
+    <motor name="f1_linear_motor" joint="f1_Motor_Linear_Joint" gear="1" ctrlrange="-56 56" forcerange="-56 56" ctrllimited="true" forcelimited="true" />
+    <motor name="f2_linear_motor" joint="f2_Motor_Linear_Joint" gear="1" ctrlrange="-56 56" forcerange="-56 56" ctrllimited="true" forcelimited="true" />
+    <motor name="f3_linear_motor" joint="f3_Motor_Linear_Joint" gear="1" ctrlrange="-56 56" forcerange="-56 56" ctrllimited="true" forcelimited="true" />
+    <motor name="f4_linear_motor" joint="f4_Motor_Linear_Joint" gear="1" ctrlrange="-56 56" forcerange="-56 56" ctrllimited="true" forcelimited="true" />
+    <motor name="f5_linear_motor" joint="c_t_Motor_Linear_Joint" gear="1" ctrlrange="-56 56" forcerange="-56 56" ctrllimited="true" forcelimited="true" />
+    <motor name="f6_linear_motor" joint="c_Motor_Linear_Joint" gear="1" ctrlrange="-56 56" forcerange="-56 56" ctrllimited="true" forcelimited="true" />
+  </actuator>
+</mujoco>

@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="ROUGH_L_finger_module">
+  <compiler angle="radian" />
+  <default>
+    <geom contype="0" conaffinity="2" friction="0.8 0.01 0.002" material="robot_mat" />
+    <joint armature="0.0001" damping="0.01" />
+  </default>
+  <asset>
+    <material name="robot_mat" rgba="0.32 0.32 0.32 1" specular="0.10" shininess="0.15"/>
+    <mesh name="mesh_1" file="ROUGH_L_finger/meshes/Base_Link.STL" />
+    <mesh name="mesh_2" file="ROUGH_L_finger/meshes/Link_1.STL" />
+    <mesh name="mesh_3" file="ROUGH_L_finger/meshes/Link_4.STL" />
+    <mesh name="mesh_4" file="ROUGH_L_finger/meshes/Link_2.STL" />
+    <mesh name="mesh_5" file="ROUGH_L_finger/meshes/Link_3.STL" />
+    <mesh name="mesh_6" file="ROUGH_L_finger/meshes/Link_5.STL" />
+    <mesh name="mesh_7" file="ROUGH_L_finger/meshes/Motor_Link.STL" />
+    <mesh name="mesh_8" file="ROUGH_L_finger/meshes/Motor_Linear_Link.STL" />
+  </asset>
+  <worldbody>
+    <body name="Base_Link" pos="0 0 0" quat="1 0 0 0">
+      <inertial mass="0.0164675" pos="0.009294999999999999 0 0.033358" fullinertia="1.03262e-05 1.00755e-05 7.81394e-07 -5.45638e-13 -3.2678e-07 -1.67724e-12" />
+      <geom type="mesh" mesh="mesh_1" pos="0 0 0" quat="1 0 0 0" group="3" />
+      <geom type="mesh" mesh="mesh_1" pos="0 0 0" quat="1 0 0 0" contype="2" conaffinity="2" group="1" rgba="0.32 0.32 0.32 1" />
+      <body name="Link_1" pos="0.01005 0 0.08019999999999999" quat="1 0 0 0">
+        <inertial mass="0.0049945" pos="-0.004551 0 0.015175" fullinertia="6.47126e-07 6.53202e-07 1.90187e-07 5.88256e-13 -4.22667e-08 3.60614e-13" />
+        <geom type="mesh" mesh="mesh_2" pos="0 0 0" quat="1 0 0 0" group="3" />
+        <geom type="mesh" mesh="mesh_2" pos="0 0 0" quat="1 0 0 0" contype="2" conaffinity="2" group="1" rgba="0.32 0.32 0.32 1" />
+        <joint name="Joint_2" type="hinge" pos="0 0 0" axis="0 1 0" range="0 1.45" limited="true" solimplimit="0.999 0.9999 0.00001 0.5 2" />
+        <body name="Link_3" pos="0.004689 0 0.03197" quat="1 0 0 0">
+          <inertial mass="0.00449039" pos="-0.00602 0 0.009509" fullinertia="2.88049e-07 2.64542e-07 1.77221e-07 -6.99152e-12 1.93499e-08 -7.64481e-13" />
+          <geom type="mesh" mesh="mesh_5" pos="0 0 0" quat="1 0 0 0" group="3" />
+          <geom type="mesh" mesh="mesh_5" pos="0 0 0" quat="1 0 0 0" contype="2" conaffinity="2" group="1" rgba="0.32 0.32 0.32 1" />
+          <joint name="Joint_4" type="hinge" pos="-0.006689 0 -0.004949" axis="0 1 0" range="0 1.2" limited="true" solimplimit="0.999 0.9999 0.00001 0.5 2" />
+          <site name="Joint_6_s2" pos="0 0 0" size="0.0008" />
+          <site name="Joint_7_s1" pos="-0.006689 0 0.018378" size="0.0008" />
+        </body>
+        <body name="Link_4" pos="-0.004118 0 0.030046" quat="1 0 0 0">
+          <inertial mass="0.0013744" pos="0.003517 0 0.011872" fullinertia="7.446099999999999e-08 7.9614e-08 1.0879e-08 0 -2.0645e-08 0" />
+          <geom type="mesh" mesh="mesh_3" pos="0 0 0" quat="1 0 0 0" group="3" />
+          <geom type="mesh" mesh="mesh_3" pos="0 0 0" quat="1 0 0 0" contype="2" conaffinity="2" group="1" rgba="0.32 0.32 0.32 1" />
+          <joint name="Joint_5" type="hinge" pos="0 0 0" axis="0 1 0" range="0 1.3" limited="true" solimplimit="0.999 0.9999 0.00001 0.5 2" />
+          <body name="Link_5" pos="0.002118 0 0.020302" quat="1 0 0 0">
+            <inertial mass="0.0058587" pos="0.000753 -2e-06 0.014588" fullinertia="2.4099e-07 2.6235e-07 1.9419e-07 4.0406e-11 -4.9959e-09 -1.0186e-11" />
+            <geom type="mesh" mesh="mesh_6" pos="0 0 0" quat="1 0 0 0" group="3" />
+            <geom type="mesh" mesh="mesh_6" pos="0 0 0" quat="1 0 0 0" contype="2" conaffinity="2" friction="1.2 0.12 0.03" margin="0.0015" group="1" rgba="1 1 1 1" />
+            <geom name="Link_5_tip_pad" type="capsule" fromto="0 0 0.006 0 0 0.028"
+                  size="0.008" contype="2" conaffinity="2" condim="6" margin="0.0015"
+                  friction="1.2 0.12 0.03" solref="0.0025 1.2" solimp="0.985 0.998 0.0005 0.5 2"
+                  group="3" rgba="1 1 1 0"/>
+            <joint name="Joint_8" type="hinge" pos="0.004915 0 0.003442" axis="0 1 0" range="0 0.7" limited="true" solimplimit="0.999 0.9999 0.00001 0.5 2" />
+            <site name="Joint_7_s2" pos="0 0 0" size="0.0008" />
+          </body>
+        </body>
+        <site name="Joint_1_s2" pos="-0.01 0 -0.005" size="0.0008" />
+      </body>
+      <body name="Link_2" pos="0.007739 0 0.086046" quat="1 0 0 0">
+        <inertial mass="0.00195815" pos="0.0035 0 0.013062" fullinertia="1.38237e-07 1.47657e-07 1.75782e-08 0 -3.48313e-08 0" />
+        <geom type="mesh" mesh="mesh_4" pos="0 0 0" quat="1 0 0 0" group="3" />
+        <geom type="mesh" mesh="mesh_4" pos="0 0 0" quat="1 0 0 0" contype="2" conaffinity="2" group="1" rgba="0.32 0.32 0.32 1" />
+        <joint name="Joint_3" type="hinge" pos="0 0 0" axis="0 -1 0" range="-1.62 0" limited="true" solimplimit="0.999 0.9999 0.00001 0.5 2" />
+        <site name="Joint_6_s1" pos="0.007 0 0.026124" size="0.0008" />
+      </body>
+      <body name="Motor_Link" pos="0 0 0" quat="1 0 0 0">
+        <inertial mass="0.020263" pos="0.001197 0 0.030975" fullinertia="7.004e-06 7.0957e-06 4.1848e-07 -4.3282e-12 -4.331e-08 -5.1988e-12" />
+        <geom type="mesh" mesh="mesh_7" pos="0 0 0" quat="1 0 0 0" group="3" />
+        <geom type="mesh" mesh="mesh_7" pos="0 0 0" quat="1 0 0 0" contype="2" conaffinity="2" group="1" rgba="0.32 0.32 0.32 1" />
+        <joint name="Motor_Joint" type="hinge" pos="0 0 0" axis="0 -1 0" />
+        <body name="Motor_Linear_Link" pos="5e-05 0 0.0752" quat="1 0 0 0">
+          <inertial mass="0.0012895" pos="0 0 -0.013604" fullinertia="3.7426e-08 3.7579e-08 3.9769e-09 0 1.4188e-15 5.5682e-15" />
+          <geom type="mesh" mesh="mesh_8" pos="0 0 0" quat="1 0 0 0" group="3" />
+          <geom type="mesh" mesh="mesh_8" pos="0 0 0" quat="1 0 0 0" contype="2" conaffinity="2" group="1" rgba="0.32 0.32 0.32 1" />
+          <joint name="Motor_Linear_Joint" type="slide" pos="0 0 0" axis="0 0 1" range="0 0.014" limited="true" margin="0.00" solimplimit="0.999 0.9999 0.00001 0.5 2" />
+          <site name="Joint_1_s1" pos="0 0 0" size="0.0008" />
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <equality>
+    <connect name="Joint_1_loop" site1="Joint_1_s1" site2="Joint_1_s2" solimp="0.999 0.9999 0.00001 0.5 2" />
+    <connect name="Joint_6_loop" site1="Joint_6_s1" site2="Joint_6_s2" solimp="0.999 0.9999 0.00001 0.5 2" />
+    <connect name="Joint_7_loop" site1="Joint_7_s1" site2="Joint_7_s2" solimp="0.999 0.9999 0.00001 0.5 2" />
+  </equality>
+  <contact>
+    <exclude body1="Base_Link" body2="Link_1" />
+    <exclude body1="Base_Link" body2="Link_2" />
+    <exclude body1="Base_Link" body2="Link_3" />
+    <exclude body1="Base_Link" body2="Link_4" />
+    <exclude body1="Base_Link" body2="Link_5" />
+    <exclude body1="Base_Link" body2="Motor_Link" />
+    <exclude body1="Base_Link" body2="Motor_Linear_Link" />
+    <exclude body1="Link_1" body2="Link_2" />
+    <exclude body1="Link_1" body2="Link_3" />
+    <exclude body1="Link_1" body2="Link_4" />
+    <exclude body1="Link_1" body2="Link_5" />
+    <exclude body1="Link_1" body2="Motor_Link" />
+    <exclude body1="Link_1" body2="Motor_Linear_Link" />
+    <exclude body1="Link_4" body2="Link_5" />
+    <exclude body1="Link_2" body2="Link_3" />
+    <exclude body1="Link_2" body2="Link_4" />
+    <exclude body1="Link_2" body2="Link_5" />
+    <exclude body1="Link_2" body2="Motor_Link" />
+    <exclude body1="Link_2" body2="Motor_Linear_Link" />
+    <exclude body1="Link_3" body2="Link_4" />
+    <exclude body1="Link_3" body2="Link_5" />
+    <exclude body1="Link_3" body2="Motor_Link" />
+    <exclude body1="Link_3" body2="Motor_Linear_Link" />
+    <exclude body1="Link_4" body2="Motor_Link" />
+    <exclude body1="Link_4" body2="Motor_Linear_Link" />
+    <exclude body1="Link_5" body2="Motor_Link" />
+    <exclude body1="Link_5" body2="Motor_Linear_Link" />
+    <exclude body1="Motor_Link" body2="Motor_Linear_Link" />
+  </contact>
+</mujoco>

@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="ROUGH_R_finger_thumb_module">
+  <compiler angle="radian" />
+  <default>
+    <geom contype="0" conaffinity="2" friction="0.8 0.01 0.002" material="robot_mat" />
+    <joint armature="0.0001" damping="0.01" />
+  </default>
+  <asset>
+    <material name="robot_mat" rgba="0.32 0.32 0.32 1" specular="0.10" shininess="0.15"/>
+    <mesh name="mesh_1" file="ROUGH_R_finger_thumb/meshes/Base_Link.STL" />
+    <mesh name="mesh_2" file="ROUGH_R_finger_thumb/meshes/Motor_Link.STL" />
+    <mesh name="mesh_3" file="ROUGH_R_finger_thumb/meshes/Motor_Linear_Link.STL" />
+    <mesh name="mesh_4" file="ROUGH_R_finger_thumb/meshes/Link_1.STL" />
+    <mesh name="mesh_5" file="ROUGH_R_finger_thumb/meshes/Link_3.STL" />
+    <mesh name="mesh_6" file="ROUGH_R_finger_thumb/meshes/Link_2.STL" />
+  </asset>
+  <worldbody>
+    <body name="Base_Link" pos="0 0 0" quat="1 0 0 0">
+      <inertial mass="0.0141894" pos="-0.003138 -0 -0.027121" fullinertia="5.15833e-06 5.30449e-06 1.55324e-06 -5.08996e-12 -3.81119e-07 -5.70135e-12" />
+      <geom type="mesh" mesh="mesh_1" pos="0 0 0" quat="1 0 0 0" group="3" />
+      <geom type="mesh" mesh="mesh_1" pos="0 0 0" quat="1 0 0 0" contype="2" conaffinity="2" group="1" rgba="0.32 0.32 0.32 1" />
+      <body name="Link_1" pos="-0.01 0 -0.005" quat="1 0 0 0">
+        <inertial mass="0.0052678" pos="0.005831 -0 0.020596" fullinertia="6.6128e-07 6.6582e-07 2.016e-07 -8.9128e-13 -4.3735e-08 -1.8376e-14" />
+        <geom type="mesh" mesh="mesh_4" pos="0 0 0" quat="1 0 0 0" group="3" />
+        <geom type="mesh" mesh="mesh_4" pos="0 0 0" quat="1 0 0 0" contype="2" conaffinity="2" group="1" rgba="0.32 0.32 0.32 1" />
+        <joint name="Joint_2" type="hinge" pos="0.01 0 0.005" axis="0 1 0" range="0 1" limited="true" solimplimit="0.999 0.9999 0.00001 0.5 2"/>
+        <body name="Link_3" pos="0.005882 0 0.035046" quat="1 0 0 0">
+          <inertial mass="0.00620534" pos="0.003132 2e-06 0.014591" fullinertia="2.51758e-07 2.81987e-07 2.12794e-07 -3.82785e-11 -1.24356e-08 1.66929e-11" />
+          <geom type="mesh" mesh="mesh_5" pos="0 0 0" quat="1 0 0 0" group="3" />
+          <geom type="mesh" mesh="mesh_5" pos="0 0 0" quat="1 0 0 0" contype="2" conaffinity="2" friction="1.2 0.12 0.03" margin="0.0015" group="1" rgba="1 1 1 1" />
+          <geom name="Link_3_tip_pad" type="capsule" fromto="0 0 0.006 0 0 0.029"
+                size="0.008" contype="2" conaffinity="2" condim="6" margin="0.0015"
+                friction="1.2 0.12 0.03" solref="0.0025 1.2" solimp="0.985 0.998 0.0005 0.5 2"
+                group="3" rgba="1 1 1 0"/>
+          <joint name="Joint_4" type="hinge" pos="0 0 0" axis="0 1 0" range="0 1" limited="true" solimplimit="0.999 0.9999 0.00001 0.5 2"/>
+          <site name="Joint_5_s1" pos="0.005405 0 0.002606" size="0.0008" />
+        </body>
+        <site name="Joint_1_s2" pos="0 0 0" size="0.0008" />
+      </body>
+      <body name="Link_2" pos="0.001287 0 0.032652" quat="1 0 0 0">
+        <inertial mass="0.0019581" pos="-0.001799 -0 -0.013403" fullinertia="1.4511e-07 1.4766e-07 1.071e-08 2.0214e-23 -1.8366e-08 1.5995e-22" />
+        <geom type="mesh" mesh="mesh_6" pos="0 0 0" quat="1 0 0 0" group="3" />
+        <geom type="mesh" mesh="mesh_6" pos="0 0 0" quat="1 0 0 0" contype="2" conaffinity="2" group="1" rgba="0.32 0.32 0.32 1" />
+        <joint name="Joint_3" type="hinge" pos="-0.003598 0 -0.026806" axis="0 -1 0" />
+        <site name="Joint_5_s2" pos="0 0 0" size="0.0008" />
+      </body>
+      <body name="Motor_Link" pos="-0.01005 0 -0.053" quat="1 0 0 0">
+        <inertial mass="0.024669" pos="0.006672 -0 0.021946" fullinertia="3.08482e-06 4.0882e-06 1.45834e-06 -7.57836e-12 -2.8661e-07 -6.59767e-13" />
+        <geom type="mesh" mesh="mesh_2" pos="0 0 0" quat="1 0 0 0" group="3" />
+        <geom type="mesh" mesh="mesh_2" pos="0 0 0" quat="1 0 0 0" contype="2" conaffinity="2" group="1" rgba="0.32 0.32 0.32 1" />
+        <joint name="Motor_Joint" type="hinge" pos="0 0 0" axis="0 -1 0" />
+        <body name="Motor_Linear_Link" pos="0.01005 0 0.053" quat="1 0 0 0">
+          <inertial mass="0.00097143" pos="-0.01 0 -0.015529" fullinertia="1.4869e-08 1.5022e-08 2.9829e-09 -3.1154e-16 1.5714e-15 -5.5363e-15" />
+          <geom type="mesh" mesh="mesh_3" pos="0 0 0" quat="1 0 0 0" group="3" />
+          <geom type="mesh" mesh="mesh_3" pos="0 0 0" quat="1 0 0 0" contype="2" conaffinity="2" group="1" rgba="0.32 0.32 0.32 1" />
+          <joint name="Motor_Linear_Joint" type="slide" pos="0 0 0" axis="0 0 1" range="0 0.01" limited="true" margin="0.00" solimplimit="0.999 0.9999 0.00001 0.5 2"/>
+          <site name="Joint_1_s1" pos="-0.01 0 -0.005" size="0.0008" />
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <equality>
+    <connect name="Joint_1_loop" site1="Joint_1_s1" site2="Joint_1_s2" solimp="0.999 0.9999 0.00001 0.5 2"/>
+    <connect name="Joint_5_loop" site1="Joint_5_s1" site2="Joint_5_s2" solimp="0.999 0.9999 0.00001 0.5 2"/>
+  </equality>
+  <contact>
+    <exclude body1="Base_Link" body2="Link_1" />
+    <exclude body1="Base_Link" body2="Link_2" />
+    <exclude body1="Base_Link" body2="Link_3" />
+    <exclude body1="Base_Link" body2="Motor_Link" />
+    <exclude body1="Base_Link" body2="Motor_Linear_Link" />
+    <exclude body1="Link_1" body2="Link_2" />
+    <exclude body1="Link_1" body2="Link_3" />
+    <exclude body1="Link_1" body2="Motor_Link" />
+    <exclude body1="Link_1" body2="Motor_Linear_Link" />
+    <exclude body1="Link_2" body2="Link_3" />
+    <exclude body1="Link_2" body2="Motor_Link" />
+    <exclude body1="Link_2" body2="Motor_Linear_Link" />
+    <exclude body1="Link_3" body2="Motor_Link" />
+    <exclude body1="Link_3" body2="Motor_Linear_Link" />
+    <exclude body1="Motor_Link" body2="Motor_Linear_Link" />
+  </contact>
+</mujoco>

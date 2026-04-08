@@ -1,0 +1,16 @@
+build/
+install/
+log/
+
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
+.codex/
+
+__pycache__/
+*.pyc
+
+*.swp
+*.swo

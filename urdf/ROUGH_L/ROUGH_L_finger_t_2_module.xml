@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="ROUGH_L_finger_t_2_module">
+  <compiler angle="radian" />
+  <default>
+    <geom contype="0" conaffinity="2" friction="0.8 0.01 0.002" material="robot_mat" />
+    <joint armature="0.0001" damping="0.01" />
+  </default>
+  <asset>
+    <model name="ROUGH_L_thumb" file="ROUGH_L_finger_thumb_module.xml" />
+    <material name="robot_mat" rgba="0.32 0.32 0.32 1" specular="0.10" shininess="0.15"/>
+    <mesh name="mesh_1" file="ROUGH_L_finger_t_2/meshes/Base_Link.STL" />
+    <mesh name="mesh_2" file="ROUGH_L_finger_t_2/meshes/Motor_Link.STL" />
+    <mesh name="mesh_3" file="ROUGH_L_finger_t_2/meshes/Motor_Linear_Link.STL" />
+    <mesh name="mesh_4" file="ROUGH_L_finger_t_2/meshes/Link_1.STL" />
+  </asset>
+  <worldbody>
+    <body name="Base_Link" pos="0 0 0" quat="1 0 0 0">
+      <inertial mass="0.010852" pos="-0.012977 0.027232 0.001027" fullinertia="3.9878e-06 5.8405e-07 4.0363e-06 9.9209e-08 -7.7386e-08 2.5505e-07" />
+      <geom type="mesh" mesh="mesh_1" pos="0 0 0" quat="1 0 0 0" group="3" />
+      <geom type="mesh" mesh="mesh_1" pos="0 0 0" quat="1 0 0 0" contype="2" conaffinity="2" group="1" rgba="0.32 0.32 0.32 1" />
+      <body name="Link_1" pos="-0.005007 0.004993 0" quat="1 0 0 0">
+        <inertial mass="0.0069234" pos="0.019606 -0.014231 -0.005974" fullinertia="5.4219e-07 6.5464e-07 5.0668e-07 6.3759e-08 3.377e-08 -2.241e-07" />
+        <geom type="mesh" mesh="mesh_4" pos="0 0 0" quat="1 0 0 0" group="3" />
+        <geom type="mesh" mesh="mesh_4" pos="0 0 0" quat="1 0 0 0" contype="2" conaffinity="2" group="1" rgba="0.32 0.32 0.32 1" />
+        <joint name="Joint_2" type="hinge" pos="0.005007 -0.004993 0" axis="0 0 1" range="0 1.5708" />
+        <site name="Joint_1_s2" pos="0 0 0" size="0.0008" />
+        <body name="thumb_mount" pos="0.022007 -0.056359 0.019095" euler="0.785398 0 1.5708">
+          <attach model="ROUGH_L_thumb" body="Base_Link" prefix="t_" />
+        </body>
+      </body>
+      <body name="Motor_Link" pos="-0.008 0.0529 0" quat="1 0 0 0">
+        <inertial mass="0.024669" pos="0.001369 -0.021904 0.006622" fullinertia="4.078e-06 1.4686e-06 3.0848e-06 1.6369e-07 -1.7881e-08 2.8605e-07" />
+        <geom type="mesh" mesh="mesh_2" pos="0 0 0" quat="1 0 0 0" group="3" />
+        <geom type="mesh" mesh="mesh_2" pos="0 0 0" quat="1 0 0 0" contype="2" conaffinity="2" group="1" rgba="0.32 0.32 0.32 1" />
+        <joint name="Motor_Joint" type="hinge" pos="0 0 0" axis="0 0 1" />
+        <body name="Motor_Linear_Link" pos="0.002993 -0.047907 0" quat="1 0 0 0">
+          <inertial mass="0.00097143" pos="-0.000657 0.010509 0" fullinertia="1.4823e-08 3.0291e-09 1.5022e-08 7.3984e-10 0 -5.5303e-15" />
+          <geom type="mesh" mesh="mesh_3" pos="0 0 0" quat="1 0 0 0" group="3" />
+          <geom type="mesh" mesh="mesh_3" pos="0 0 0" quat="1 0 0 0" contype="2" conaffinity="2" group="1" rgba="0.32 0.32 0.32 1" />
+          <joint name="Motor_Linear_Joint" type="slide" pos="0 0 0" axis="0.062363 -0.99805 0" range="0 0.01" limited="true" margin="0.00" solimplimit="0.9999 0.9999 0.0000 0.0 1" />
+          <site name="Joint_1_s1" pos="0 0 0" size="0.0008" />
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <equality>
+    <connect name="Joint_1_loop" site1="Joint_1_s1" site2="Joint_1_s2" solimp="0.999 0.9999 0.0 0.0 0" />
+  </equality>
+  <contact>
+    <exclude body1="Base_Link" body2="Link_1" />
+    <exclude body1="Base_Link" body2="Motor_Link" />
+    <exclude body1="Base_Link" body2="Motor_Linear_Link" />
+    <exclude body1="Link_1" body2="Motor_Link" />
+    <exclude body1="Link_1" body2="Motor_Linear_Link" />
+    <exclude body1="Motor_Link" body2="Motor_Linear_Link" />
+    <exclude body1="Base_Link" body2="t_Base_Link" />
+    <exclude body1="Base_Link" body2="t_Link_1" />
+    <exclude body1="Base_Link" body2="t_Link_2" />
+    <exclude body1="Base_Link" body2="t_Link_3" />
+    <exclude body1="Base_Link" body2="t_Motor_Link" />
+    <exclude body1="Base_Link" body2="t_Motor_Linear_Link" />
+    <exclude body1="Link_1" body2="t_Base_Link" />
+    <exclude body1="Link_1" body2="t_Link_1" />
+    <exclude body1="Link_1" body2="t_Link_2" />
+    <exclude body1="Link_1" body2="t_Link_3" />
+    <exclude body1="Link_1" body2="t_Motor_Link" />
+    <exclude body1="Link_1" body2="t_Motor_Linear_Link" />
+    <exclude body1="Motor_Link" body2="t_Base_Link" />
+    <exclude body1="Motor_Link" body2="t_Link_1" />
+    <exclude body1="Motor_Link" body2="t_Link_2" />
+    <exclude body1="Motor_Link" body2="t_Link_3" />
+    <exclude body1="Motor_Link" body2="t_Motor_Link" />
+    <exclude body1="Motor_Link" body2="t_Motor_Linear_Link" />
+    <exclude body1="Motor_Linear_Link" body2="t_Base_Link" />
+    <exclude body1="Motor_Linear_Link" body2="t_Link_1" />
+    <exclude body1="Motor_Linear_Link" body2="t_Link_2" />
+    <exclude body1="Motor_Linear_Link" body2="t_Link_3" />
+    <exclude body1="Motor_Linear_Link" body2="t_Motor_Link" />
+    <exclude body1="Motor_Linear_Link" body2="t_Motor_Linear_Link" />
+  </contact>
+</mujoco>
