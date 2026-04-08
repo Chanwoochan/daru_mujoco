@@ -33,11 +33,11 @@ This package contains:
 This repository includes or references external components.
 
 - `urdf/furniture_sim`
-  Imported furniture simulation assets. See [urdf/furniture_sim/README.md](/home/rclab/daru_ws/daru_mujoco/urdf/furniture_sim/README.md) and [urdf/furniture_sim/LICENSE](/home/rclab/daru_ws/daru_mujoco/urdf/furniture_sim/LICENSE).
+  Imported furniture simulation assets. See [vikashplus/furniture_sim](https://github.com/vikashplus/furniture_sim)
 - `third_party/mujoco-3.4.0`
   Vendored MuJoCo runtime files used by this simulator.
 - `third_party/rbdl`
-  Vendored RBDL headers and libraries. See [third_party/rbdl/README.local-vendored.md](/home/rclab/daru_ws/daru_mujoco/third_party/rbdl/README.local-vendored.md).
+  Vendored RBDL headers and libraries.
 - `third_party/glfw`
   Vendored GLFW headers and libraries used at runtime.
 
